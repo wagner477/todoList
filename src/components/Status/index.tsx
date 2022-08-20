@@ -10,18 +10,6 @@ interface IStatusValues {
 export const Status = ({ creates, dones }: IStatusValues): JSX.Element => {
   return (
     <Fragment>
-      <View style={styles.form}>
-        <TextInput
-          style={styles.formInput}
-          placeholder="Adicione uma nova tarefa"
-          placeholderTextColor="#808080"
-        />
-
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>+</Text>
-        </TouchableOpacity>
-      </View>
-
       <View style={styles.statusContainer}>
         <View style={styles.createBox}>
           <Text style={styles.createBoxText}>Criadas</Text>
