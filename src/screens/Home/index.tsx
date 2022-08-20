@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Alert,
   FlatList,
-  Image,
   Keyboard,
   Text,
   TextInput,
@@ -29,8 +28,6 @@ export const Home = (): JSX.Element => {
   ]);
   const [taskText, setTaskText] = useState("");
 
-  console.log(tasks);
-
   const handleTaskRemove = (name: string) => {
     Alert.alert("Remover", `Deseja remover a tarefa ${name}?`, [
       {
@@ -47,13 +44,6 @@ export const Home = (): JSX.Element => {
     ]);
   };
 
-  // const handleTaskDone = (name: string) => {
-  //   setTasks(
-  //     tasks.map((task) => (task.text === name ? { ...task, end: true } : task))
-  //   );
-  // };
-
-  // Handle task done true or false
   const handleTaskDone = (name: string) => {
     setTasks(
       tasks.map((task) =>
@@ -62,19 +52,6 @@ export const Home = (): JSX.Element => {
     );
   };
 
-  // const handleTaskCreate = () => {
-  //   if (taskText.trim()) {
-  //     setTasks([...tasks, { text: taskText, end: false }]);
-  //     setTaskText("");
-  //     Keyboard.dismiss();
-  //   } else {
-  //     Alert.alert("Erro", "Digite uma tarefa válida");
-  //   }
-  // };
-
-  // Handle task create
-
-  // Criar uma tarefa se ela não existir ou ou se ela não for vazia
   const handleTaskCreate = () => {
     if (tasks.find((task) => task.text === taskText)) {
       Alert.alert("Erro", "Tarefa já cadastrada");
@@ -114,7 +91,6 @@ export const Home = (): JSX.Element => {
         </TouchableOpacity>
       </View>
 
-      {/* somar quantas tasks done: true */}
       <Status
         creates={tasks.length}
         dones={tasks.filter((task) => task.end).length}
